@@ -3,7 +3,7 @@ import Banner from "@/app/banner.png"
  import Image from "next/image";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gray-200">
+    <main className="flex min-h-screen flex-col items-center bg-zinc-400">
       <NavBar active={"paginaInicial"}/>
       
       <div className="">
@@ -18,14 +18,17 @@ export default function Home() {
       </div>
       
       <div className="p-14">
-      <h1 className="text-2xl text-center text-white font-bold">Lançamentos</h1>
+      <h1 className="rounded-xl text-3xl text-center text-white font-bold bg-zinc-700 p-2  shadow-xl">Lançamentos</h1>
       </div>
 
       <div className="flex gap-20">
-        <img src="/camisa-alemanha.png" width={250}/>
-        <img src="/camisa-coreia.png" width={250}/>
-        <img src="/camisa-holanda.png" width={250}/>
-        <img src="/camisa-portugal.png" width={250}/>
+        <div>
+          <img className="border-2 rounded-md border-zinc-700 " src="/camisa-alemanha.png" width={240}/>
+        </div>
+        
+        <img className="border-2 rounded-md border-zinc-700" src="/camisa-coreia.png" width={240}/>
+        <img className="border-2 rounded-md border-zinc-700" src="/camisa-holanda.png" width={240}/>
+        <img className="border-2 rounded-md border-zinc-700" src="/camisa-portugal.png" width={240}/>
       </div>
     </main>
   );
