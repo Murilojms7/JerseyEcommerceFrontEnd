@@ -1,16 +1,23 @@
 import NavBar from "@/components/NavBar";
-import Banner from "@/app/banner.png"
  import Image from "next/image";
-export default function Home() {
+ import { CamisaItem } from "../app/futebol/CamisasItem";
+import Footer from "@/components/Footer";
+export default async function Home() {
+  async function getCamisas (){
+    const resp = await fetch("http://localhost:8080/camisa", {next:{ revalidate: 0 }})
+    return await resp.json()
+  }
+  const camisas : Array<Camisa> = await getCamisas()
+
   return (
-    <main className="flex min-h-screen flex-col items-center bg-zinc-400">
+    <main className="flex min-h-screen flex-col items-center bg-gray-600">
       <NavBar active={"paginaInicial"}/>
       
       <div className="">
         <Image
               src="/banner.png"
               alt="logo"
-              className="dark:invert pt-16  "
+              className="pt-16"
               width={1000}
               height={24}
               priority
@@ -18,18 +25,13 @@ export default function Home() {
       </div>
       
       <div className="p-14">
-      <h1 className="rounded-xl text-3xl text-center text-white font-bold bg-zinc-700 p-2  shadow-xl">Lançamentos</h1>
+      <h1 className="rounded-xl text-3xl text-center text-white font-bold bg-zinc-700 p-2 px-7  shadow-xl">Lançamentos</h1>
       </div>
 
       <div className="flex gap-20">
-        <div>
-          <img className="border-2 rounded-md border-zinc-700 " src="/camisa-alemanha.png" width={240}/>
-        </div>
-        
-        <img className="border-2 rounded-md border-zinc-700" src="/camisa-coreia.png" width={240}/>
-        <img className="border-2 rounded-md border-zinc-700" src="/camisa-holanda.png" width={240}/>
-        <img className="border-2 rounded-md border-zinc-700" src="/camisa-portugal.png" width={240}/>
-      </div>
+        {camisas.slice(-4).map(camisa => <CamisaItem camisa={camisa} /> )}
+       </div>
+       <Footer/>
     </main>
   );
 }
