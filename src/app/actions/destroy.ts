@@ -1,7 +1,7 @@
 "use server"
 
 import { redirect } from "next/navigation"
-
+import { revalidateTag } from "next/cache"
 
 export async function destroy(id: number) {
 
@@ -9,8 +9,9 @@ export async function destroy(id: number) {
 
     const resp = await fetch(process.env.API_BASE_URL + "/camisa/" + id, { method: "DELETE" })
 
-    if (resp.ok){
-        redirect("/camisa")
+    if(resp.ok){
+        revalidateTag("remover")
+        redirect("/remover")
     }
 
     if(!resp.ok){

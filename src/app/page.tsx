@@ -1,7 +1,6 @@
 import NavBar from "@/components/NavBar";
  import Image from "next/image";
  import { CamisaItem } from "../app/futebol/CamisasItem";
-import Footer from "@/components/Footer";
 export default async function Home() {
   async function getCamisas (){
     const resp = await fetch("http://localhost:8080/camisa", {next:{ revalidate: 0 }})
@@ -31,7 +30,7 @@ export default async function Home() {
       <div className="flex gap-20">
         {camisas.slice(-4).map(camisa => <CamisaItem camisa={camisa} /> )}
        </div>
-       <Footer/>
+       
     </main>
   );
 }

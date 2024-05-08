@@ -4,9 +4,9 @@ import { tamanho } from "../utils/tamanho";
 
 export default function AutoCompleteTamanho() {
 return(
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4 font-bold text-slate-950">
+    <div className="flex w-full flex-wrap md:flex-nowrap gap-4 font-bold text-slate-950 px-1 ">
       <Autocomplete
-        label="Tamanho"
+        
         placeholder="Escolha..."
         className="max-w-xs"
         variant="bordered"
