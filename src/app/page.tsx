@@ -1,3 +1,4 @@
+
 import NavBar from "@/components/NavBar";
  import Image from "next/image";
  import { CamisaItem } from "../app/futebol/CamisasItem";
@@ -28,7 +29,7 @@ export default async function Home() {
       </div>
 
       <div className="flex gap-20">
-        {camisas.slice(-4).map(camisa => <CamisaItem camisa={camisa} /> )}
+        
        </div>
        
     </main>

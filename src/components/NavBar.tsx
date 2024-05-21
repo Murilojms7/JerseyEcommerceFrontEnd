@@ -28,10 +28,10 @@ export default function NavBar(props: NavBarProps ){
                         </ul>
                     </div>
                     
-                    <div className=" text-baseabsolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
-                        <Button onClick={Carrinho}  >
+                    <div className="flex text-baseabsolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
+                        <Button onClick={Carrinho} className="flex" >
                             <ShoppingCart/>
-                            <h1 className="pl-1">Carrinho</h1>
+                            <h1 className="pl-1 ">Carrinho</h1>
                         </Button>
                        <ButtomCarrinho></ButtomCarrinho>
                     </div>
